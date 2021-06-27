@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      body {
+        background-color: black !important;
+        color: white !important;
+      }
+      #profile-image {
+        border-radius: 50%;
+        width: 30px;
+      }
+
+      form {
+        height: 30px;
+        width: 40%;
+        display: flex;
+      }
+
+      .nav-item {
+        color: grey;
+      }
+
+      #search-icon {
+        background-color: white;
+        width: 40px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .fa-bars {
+        color: white;
+      }
+
+      .my-nav-brand {
+        text-decoration: none;
+        color: white;
+      }
+
+      @media (max-width: 571px) {
+        form {
+          display: none !important;
+        }
+      }
+
+      @media (min-width: 571px) {
+        #right-search-icon {
+          display: none;
+        }
+      }
+
+      #right-search-icon {
+        color: white;
+      }
+
+      .form-control {
+        border-radius: 0px !important;
+      }
+      .main-video {
+        width: 100%;
+        height: 80vh;
+      }
+
+      #time-tag {
+        background-color: black;
+        position: absolute;
+        bottom: 2px;
+        right: 2px;
+      }
+
+      /* .signle-right-item {
+        width: 100%;
+      } */
+      .single-right-video-texts label {
+        display: block;
+        font-size: 12px;
+      }
+
+      .single-right-video {
+        position: relative;
+      }
+
+      .category-button {
+        background-color: #303030;
+        border-radius: 20px;
+        border: 1px grey;
+        text-align: center;
+        padding: 2px 10px 2px 10px;
+        margin-bottom: 20px;
+        margin-right: 5px;
+      }
+
+      .category-button span {
+        margin: auto;
+      }
+
+      #channel-profile {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: green;
+        font-size: 25px;
+      }
+
+      .channel-title {
+        font-weight: bold;
+      }
+
+      .show-more-button {
+        font-weight: bold;
+      }
+
+      .channel-desc label {
+        display: block;
+      }
+
+      button {
+        background-color: red;
+        height: 35px;
+        color: white;
+        border: none;
+        padding: 5px;
+      }
+
+      #comment-image {
+        margin-top: 30px;
+
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+      }
+
+      #comment-input {
+        margin-top: 30px;
+        background-color: black;
+        color: white;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid grey;
+      }
+
+      #comment-input input:focus {
+        outline: none;
+        border: none;
+        border-bottom: 1px solid grey;
+      }
+
+      #comment-image-written {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+      }
+
+      .comment label {
+        display: block;
+      }
+
+      #view-all-comments-label {
+        color: #3da6ff;
+      }
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <title>Dyary's Youtube</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <span class="me-auto">
+          <i class="fa fa-bars me-2"></i>
+          <a class="my-nav-brand" href="#">
+            <i class="fab fa-youtube fa-lg" style="color: red"></i>
+            <span style="font-size: 18px; font-weight: bold">YouTube</span>
+          </a>
+        </span>
+
+        <form class="m-auto">
+          <input
+            class="form-control"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <span id="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+        </form>
+
+        <div class="expnad navbar-expand" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-lg-0">
+            <div class="me-auto navbar-nav">
+              <li>
+                <a class="nav-link" href="#"
+                  ><i id="right-search-icon" class="fa fa-search"></i
+                ></a>
+              </li>
+
+              <li>
+                <a class="nav-link" href="#"><img src="camera-icon.svg" /></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#"><img src="window-icon.svg" /></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#"
+                  ><img src="dots-vertical-icon.svg"
+                /></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  ><img id="profile-image" src="my-image.jpeg"
+                /></a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mt-5 mx-5">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe
+              class="embed-responsive-item main-video"
+              src="https://www.youtube.com/embed/V74l_zS1x8E"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div id="below-main-video">
+            <h5>Contributing to Open Source Part I: The Easy Way</h5>
+            <div class="d-flex">
+              <span>63,333 views . Feb 28, 2014</span>
+              <div class="ms-auto">
+                <span class="me-3">
+                  <img
+                    src="https://tmcerlean.github.io/youtube-clone/images/grey-like.svg"
+                  />
+                  7.2K
+                </span>
+                <span class="me-3">
+                  <img
+                    src="https://tmcerlean.github.io/youtube-clone/images/grey-dislike.svg"
+                  />
+                  7.2K
+                </span>
+                <span class="me-3">
+                  <img
+                    src="https://tmcerlean.github.io/youtube-clone/images/grey-share.svg"
+                  />
+                  SHARE
+                </span>
+                <span class="me-3">
+                  <img
+                    src="https://tmcerlean.github.io/youtube-clone/images/grey-save.svg"
+                  />
+                  SAVE
+                </span>
+
+                <span class="me-3">
+                  <img
+                    src="https://tmcerlean.github.io/youtube-clone/images/grey-mini-menu.svg"
+                  />
+                </span>
+              </div>
+            </div>
+
+            <hr />
+
+            <div>
+              <div class="d-flex">
+                <div
+                  id="channel-profile"
+                  class="d-flex justify-content-center align-items-center"
+                >
+                  <span>T</span>
+                </div>
+
+                <div class="col-md-8 ps-2 channel-desc">
+                  <label class="channel-title">The Oding Project</label>
+                  <label>1.06K subscribers</label>
+                  <p class="mt-2">
+                    How do you contribute to open source? In this video, I'll
+                    describe the easiest way to make a simple contribution to an
+                    open source project -- without using the command line, a
+                    text editor, "forking a repo", or even touching Git outside
+                    of Github. I'll also describe what kinds of
+                  </p>
+                  <label class="show-more-button">SHOW MORE</label>
+                </div>
+
+                <button class="ms-auto">SUBSCRIBE</button>
+              </div>
+            </div>
+
+            <hr />
+
+            <div class="d-flex">
+              <label class="me-4">12,000 Comments</label>
+              <span>
+                <img
+                  src="https://tmcerlean.github.io/youtube-clone/images/sort.svg"
+                  alt="sort-icon"
+                />
+                SORT BY
+              </span>
+            </div>
+
+            <div class="d-flex">
+              <img id="comment-image" src="my-image.jpeg" class="me-2" />
+              <input
+                id="comment-input"
+                class="form-control"
+                placeholder="Add a public comment..."
+              />
+            </div>
+
+            <div>
+              <div class="d-flex mt-5">
+                <img
+                  id="comment-image-written"
+                  src="my-image.jpeg"
+                  class="me-2"
+                />
+                <div class="comment">
+                  <label>Wing N.</label>
+                  <label> 3 years ago</label>
+                  <p>
+                    "use your powers for good" haha thank you for the video.
+                  </p>
+
+                  <span class="me-3">
+                    <img
+                      src="https://tmcerlean.github.io/youtube-clone/images/grey-like.svg"
+                    />
+                    7.2K
+                  </span>
+                  <span class="me-3">
+                    <img
+                      src="https://tmcerlean.github.io/youtube-clone/images/grey-dislike.svg"
+                    />
+                    7.2K
+                  </span>
+
+                  <span>REPLY</span>
+
+                  <label class="mt-2" id="view-all-comments-label"
+                    ><span class="fa fa-caret-down me-1"></span>View All
+                    Comments</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="d-flex mt-5">
+                <img
+                  id="comment-image-written"
+                  src="my-image.jpeg"
+                  class="me-2"
+                />
+                <div class="comment">
+                  <label>Wing N.</label>
+                  <label> 3 years ago</label>
+                  <p>
+                    "use your powers for good" haha thank you for the video.
+                  </p>
+
+                  <span class="me-3">
+                    <img
+                      src="https://tmcerlean.github.io/youtube-clone/images/grey-like.svg"
+                    />
+                    7.2K
+                  </span>
+                  <span class="me-3">
+                    <img
+                      src="https://tmcerlean.github.io/youtube-clone/images/grey-dislike.svg"
+                    />
+                    7.2K
+                  </span>
+
+                  <span>REPLY</span>
+
+                  <label class="mt-2" id="view-all-comments-label"
+                    ><span class="fa fa-caret-down me-1"></span>View All
+                    Comments</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="d-flex mt-5">
+                <img
+                  id="comment-image-written"
+                  src="my-image.jpeg"
+                  class="me-2"
+                />
+                <div class="comment">
+                  <label>Wing N.</label>
+                  <label> 3 years ago</label>
+                  <p>
+                    "use your powers for good" haha thank you for the video.
+                  </p>
+
+                  <span class="me-3">
+                    <img
+                      src="https://tmcerlean.github.io/youtube-clone/images/grey-like.svg"
+                    />
+                    7.2K
+                  </span>
+                  <span class="me-3">
+                    <img
+                      src="https://tmcerlean.github.io/youtube-clone/images/grey-dislike.svg"
+                    />
+                    7.2K
+                  </span>
+
+                  <span>REPLY</span>
+
+                  <label class="mt-2" id="view-all-comments-label"
+                    ><span class="fa fa-caret-down me-1"></span>View All
+                    Comments</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="d-flex mt-5">
+                <img
+                  id="comment-image-written"
+                  src="my-image.jpeg"
+                  class="me-2"
+                />
+                <div class="comment">
+                  <label>Wing N.</label>
+                  <label> 3 years ago</label>
+                  <p>
+                    "use your powers for good" haha thank you for the video.
+                  </p>
+
+                  <span class="me-3">
+                    <img
+                      src="https://tmcerlean.github.io/youtube-clone/images/grey-like.svg"
+                    />
+                    7.2K
+                  </span>
+                  <span class="me-3">
+                    <img
+                      src="https://tmcerlean.github.io/youtube-clone/images/grey-dislike.svg"
+                    />
+                    7.2K
+                  </span>
+
+                  <span>REPLY</span>
+
+                  <label class="mt-2" id="view-all-comments-label"
+                    ><span class="fa fa-caret-down me-1"></span>View All
+                    Comments</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="d-flex mt-5">
+                <img
+                  id="comment-image-written"
+                  src="my-image.jpeg"
+                  class="me-2"
+                />
+                <div class="comment">
+                  <label>Wing N.</label>
+                  <label> 3 years ago</label>
+                  <p>
+                    "use your powers for good" haha thank you for the video.
+                  </p>
+
+                  <span class="me-3">
+                    <img
+                      src="https://tmcerlean.github.io/youtube-clone/images/grey-like.svg"
+                    />
+                    7.2K
+                  </span>
+                  <span class="me-3">
+                    <img
+                      src="https://tmcerlean.github.io/youtube-clone/images/grey-dislike.svg"
+                    />
+                    7.2K
+                  </span>
+
+                  <span>REPLY</span>
+
+                  <label class="mt-2" id="view-all-comments-label"
+                    ><span class="fa fa-caret-down me-1"></span>View All
+                    Comments</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="d-flex">
+            <span class="category-button">All</span>
+            <span class="category-button">Git</span>
+            <span class="category-button">Website</span>
+            <span class="category-button">Related</span>
+            <span class="category-button">Recently Uploaded</span>
+            <span class="category-button">Watched</span>
+          </div>
+
+          <div class="row single-right-item mb-2">
+            <div class="col-md-4 single-right-video">
+              <img
+                src="https://tmcerlean.github.io/youtube-clone/images/1.jpg"
+                alt="me"
+                class="img-fluid"
+              />
+              <div id="time-tag">
+                <span>10:10</span>
+              </div>
+            </div>
+
+            <div class="col-md-8 single-right-video-texts">
+              <div class="d-flex">
+                <h6>Contributing to Open Source Part I: The Easy Way</h6>
+                <img
+                  class="ms-auto"
+                  src="https://tmcerlean.github.io/youtube-clone/images/grey-vertical-mini-menu.svg"
+                  alt="3 dots vertical"
+                />
+              </div>
+
+              <label>The Oding Project</label>
+              <label>63k views. 6 years ago</label>
+            </div>
+          </div>
+
+          <div class="row single-right-item mb-2">
+            <div class="col-md-4 single-right-video">
+              <img
+                src="https://tmcerlean.github.io/youtube-clone/images/1.jpg"
+                alt="me"
+                class="img-fluid"
+              />
+              <div id="time-tag">
+                <span>10:10</span>
+              </div>
+            </div>
+
+            <div class="col-md-8 single-right-video-texts">
+              <div class="d-flex">
+                <h6>Contributing to Open Source Part I: The Easy Way</h6>
+                <img
+                  class="ms-auto"
+                  src="https://tmcerlean.github.io/youtube-clone/images/grey-vertical-mini-menu.svg"
+                  alt="3 dots vertical"
+                />
+              </div>
+
+              <label>The Oding Project</label>
+              <label>63k views. 6 years ago</label>
+            </div>
+          </div>
+
+          <div class="row single-right-item mb-2">
+            <div class="col-md-4 single-right-video">
+              <img
+                src="https://tmcerlean.github.io/youtube-clone/images/1.jpg"
+                alt="me"
+                class="img-fluid"
+              />
+              <div id="time-tag">
+                <span>10:10</span>
+              </div>
+            </div>
+
+            <div class="col-md-8 single-right-video-texts">
+              <div class="d-flex">
+                <h6>Contributing to Open Source Part I: The Easy Way</h6>
+                <img
+                  class="ms-auto"
+                  src="https://tmcerlean.github.io/youtube-clone/images/grey-vertical-mini-menu.svg"
+                  alt="3 dots vertical"
+                />
+              </div>
+
+              <label>The Oding Project</label>
+              <label>63k views. 6 years ago</label>
+            </div>
+          </div>
+
+          <div class="row single-right-item mb-2">
+            <div class="col-md-4 single-right-video">
+              <img
+                src="https://tmcerlean.github.io/youtube-clone/images/1.jpg"
+                alt="me"
+                class="img-fluid"
+              />
+              <div id="time-tag">
+                <span>10:10</span>
+              </div>
+            </div>
+
+            <div class="col-md-8 single-right-video-texts">
+              <div class="d-flex">
+                <h6>Contributing to Open Source Part I: The Easy Way</h6>
+                <img
+                  class="ms-auto"
+                  src="https://tmcerlean.github.io/youtube-clone/images/grey-vertical-mini-menu.svg"
+                  alt="3 dots vertical"
+                />
+              </div>
+
+              <label>The Oding Project</label>
+              <label>63k views. 6 years ago</label>
+            </div>
+          </div>
+
+          <div class="row single-right-item mb-2">
+            <div class="col-md-4 single-right-video">
+              <img
+                src="https://tmcerlean.github.io/youtube-clone/images/1.jpg"
+                alt="me"
+                class="img-fluid"
+              />
+              <div id="time-tag">
+                <span>10:10</span>
+              </div>
+            </div>
+
+            <div class="col-md-8 single-right-video-texts">
+              <div class="d-flex">
+                <h6>Contributing to Open Source Part I: The Easy Way</h6>
+                <img
+                  class="ms-auto"
+                  src="https://tmcerlean.github.io/youtube-clone/images/grey-vertical-mini-menu.svg"
+                  alt="3 dots vertical"
+                />
+              </div>
+
+              <label>The Oding Project</label>
+              <label>63k views. 6 years ago</label>
+            </div>
+          </div>
+
+          <div class="row single-right-item mb-2">
+            <div class="col-md-4 single-right-video">
+              <img
+                src="https://tmcerlean.github.io/youtube-clone/images/1.jpg"
+                alt="me"
+                class="img-fluid"
+              />
+              <div id="time-tag">
+                <span>10:10</span>
+              </div>
+            </div>
+
+            <div class="col-md-8 single-right-video-texts">
+              <div class="d-flex">
+                <h6>Contributing to Open Source Part I: The Easy Way</h6>
+                <img
+                  class="ms-auto"
+                  src="https://tmcerlean.github.io/youtube-clone/images/grey-vertical-mini-menu.svg"
+                  alt="3 dots vertical"
+                />
+              </div>
+
+              <label>The Oding Project</label>
+              <label>63k views. 6 years ago</label>
+            </div>
+          </div>
+
+          <div class="row single-right-item mb-2">
+            <div class="col-md-4 single-right-video">
+              <img
+                src="https://tmcerlean.github.io/youtube-clone/images/1.jpg"
+                alt="me"
+                class="img-fluid"
+              />
+              <div id="time-tag">
+                <span>10:10</span>
+              </div>
+            </div>
+
+            <div class="col-md-8 single-right-video-texts">
+              <div class="d-flex">
+                <h6>Contributing to Open Source Part I: The Easy Way</h6>
+                <img
+                  class="ms-auto"
+                  src="https://tmcerlean.github.io/youtube-clone/images/grey-vertical-mini-menu.svg"
+                  alt="3 dots vertical"
+                />
+              </div>
+
+              <label>The Oding Project</label>
+              <label>63k views. 6 years ago</label>
+            </div>
+          </div>
+
+          <div class="row single-right-item mb-2">
+            <div class="col-md-4 single-right-video">
+              <img
+                src="https://tmcerlean.github.io/youtube-clone/images/1.jpg"
+                alt="me"
+                class="img-fluid"
+              />
+              <div id="time-tag">
+                <span>10:10</span>
+              </div>
+            </div>
+
+            <div class="col-md-8 single-right-video-texts">
+              <div class="d-flex">
+                <h6>Contributing to Open Source Part I: The Easy Way</h6>
+                <img
+                  class="ms-auto"
+                  src="https://tmcerlean.github.io/youtube-clone/images/grey-vertical-mini-menu.svg"
+                  alt="3 dots vertical"
+                />
+              </div>
+
+              <label>The Oding Project</label>
+              <label>63k views. 6 years ago</label>
+            </div>
+          </div>
+
+          <div class="row single-right-item mb-2">
+            <div class="col-md-4 single-right-video">
+              <img
+                src="https://tmcerlean.github.io/youtube-clone/images/1.jpg"
+                alt="me"
+                class="img-fluid"
+              />
+              <div id="time-tag">
+                <span>10:10</span>
+              </div>
+            </div>
+
+            <div class="col-md-8 single-right-video-texts">
+              <div class="d-flex">
+                <h6>Contributing to Open Source Part I: The Easy Way</h6>
+                <img
+                  class="ms-auto"
+                  src="https://tmcerlean.github.io/youtube-clone/images/grey-vertical-mini-menu.svg"
+                  alt="3 dots vertical"
+                />
+              </div>
+
+              <label>The Oding Project</label>
+              <label>63k views. 6 years ago</label>
+            </div>
+          </div>
+
+          <div class="row single-right-item mb-2">
+            <div class="col-md-4 single-right-video">
+              <img
+                src="https://tmcerlean.github.io/youtube-clone/images/1.jpg"
+                alt="me"
+                class="img-fluid"
+              />
+              <div id="time-tag">
+                <span>10:10</span>
+              </div>
+            </div>
+
+            <div class="col-md-8 single-right-video-texts">
+              <div class="d-flex">
+                <h6>Contributing to Open Source Part I: The Easy Way</h6>
+                <img
+                  class="ms-auto"
+                  src="https://tmcerlean.github.io/youtube-clone/images/grey-vertical-mini-menu.svg"
+                  alt="3 dots vertical"
+                />
+              </div>
+
+              <label>The Oding Project</label>
+              <label>63k views. 6 years ago</label>
+            </div>
+          </div>
+
+          <div class="row single-right-item mb-2">
+            <div class="col-md-4 single-right-video">
+              <img
+                src="https://tmcerlean.github.io/youtube-clone/images/1.jpg"
+                alt="me"
+                class="img-fluid"
+              />
+              <div id="time-tag">
+                <span>10:10</span>
+              </div>
+            </div>
+
+            <div class="col-md-8 single-right-video-texts">
+              <div class="d-flex">
+                <h6>Contributing to Open Source Part I: The Easy Way</h6>
+                <img
+                  class="ms-auto"
+                  src="https://tmcerlean.github.io/youtube-clone/images/grey-vertical-mini-menu.svg"
+                  alt="3 dots vertical"
+                />
+              </div>
+
+              <label>The Oding Project</label>
+              <label>63k views. 6 years ago</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
